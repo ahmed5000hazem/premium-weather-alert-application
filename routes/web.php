@@ -1,6 +1,11 @@
 <?php
 
-use App\Livewire\HomePageComponent;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Livewire\Auth\Login;
+use App\Livewire\Auth\SignUp;
+use App\Livewire\Pages\Auth\LoginPageComponent;
+use App\Livewire\Pages\Auth\SignUpPageComponent;
+use App\Livewire\Pages\HomePageComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +19,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', HomePageComponent::class);
+Route::get('/login', LoginPageComponent::class)->name('login');
+Route::get('/sign-up', SignUpPageComponent::class)->name('signup');
+Route::get('/logout', LogoutController::class)->name('logout');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/', HomePageComponent::class);
+});
