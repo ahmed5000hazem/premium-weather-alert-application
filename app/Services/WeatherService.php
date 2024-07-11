@@ -57,7 +57,7 @@ class WeatherService
      * @param string $q
      * @param string $date
      * @param string $hour
-     * @return void
+     * @return \Illuminate\Http\Client\Response
      */
     public function obtainForecast($q, $date, $hour)
     {

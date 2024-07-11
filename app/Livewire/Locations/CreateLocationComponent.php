@@ -54,5 +54,7 @@ class CreateLocationComponent extends Component
         auth()->user()->locations()->create($this->location);
 
         $this->reset(['location']);
+
+        $this->dispatch('refreshLocationsComponent');
     }
 }
