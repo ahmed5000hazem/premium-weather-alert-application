@@ -9,7 +9,7 @@
 
         <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
 
-        <div x-show="dropdownOpen" class="absolute right-0 mt-2 bg-white rounded-md shadow-lg overflow-hidden z-20" style="width:20rem;">
+        <div x-show="dropdownOpen" class="absolute h-64 overflow-auto right-0 mt-2 bg-white rounded-md shadow-lg z-20" style="width:20rem;">
             <div class="py-2">
                 @forelse ($notifications as $notification)
                     <a href="#" class="block w-full px-4 py-3 border-b hover:bg-gray-100 -mx-2">
