@@ -51,10 +51,11 @@ class CreateLocationComponent extends Component
     {
         $this->validate();
 
-        auth()->user()->locations()->create($this->location);
+        $location = auth()->user()->locations()->create($this->location);
 
         $this->reset(['location']);
 
         $this->dispatch('refreshLocationsComponent');
+        $this->dispatch('obtainWeather', $location->id);
     }
 }

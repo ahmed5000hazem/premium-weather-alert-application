@@ -42,7 +42,7 @@ class ListLocationsComponent extends Component
      */
     public function delete(string $id)
     {
-        auth()->user()->locations()->delete($id);
+        auth()->user()->locations()->where('id', $id)->delete();
 
         $this->dispatch('$refresh');
     }

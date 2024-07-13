@@ -68,4 +68,23 @@ class WeatherService
             'hour' => $hour
         ]);
     }
+
+    /**
+     * obtain forecast weather data
+     *
+     * @param string $q
+     * @param string $date
+     * @param string $hour
+     * @return \Illuminate\Http\Client\Response
+     */
+    public function obtainForecastAlert($q, $date, $hour)
+    {
+        return Http::get("{$this->base_url}/forecast.json", [
+            'key' => $this->key,
+            'dt' => $date,
+            'q' => $q,
+            'hour' => $hour,
+            'alerts' => 'yes'
+        ]);
+    }
 }
