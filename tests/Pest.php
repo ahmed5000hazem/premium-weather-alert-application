@@ -14,6 +14,7 @@
 uses(
     Tests\TestCase::class,
     Illuminate\Foundation\Testing\RefreshDatabase::class,
+    App\Traits\InteractsWithStripe::class
 )->in('Feature');
 
 uses(
