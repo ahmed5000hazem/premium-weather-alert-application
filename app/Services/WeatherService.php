@@ -39,19 +39,6 @@ class WeatherService
     }
 
     /**
-     * obtain current weather data
-     *
-     * @return \Illuminate\Http\Client\Response
-     */
-    public function obtainCurrentWeather($q)
-    {
-        return Http::get("{$this->base_url}/current.json", [
-            'key' => $this->key,
-            'q' => $q
-        ]);
-    }
-
-    /**
      * obtain forecast weather data
      *
      * @param string $q
