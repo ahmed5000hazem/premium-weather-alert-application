@@ -14,7 +14,10 @@ Premium weather alert application using Laravel. Users can subscribe to receive 
 
 ## create local domain in the hosts file
 
-on windows go to `C:\Windows\System32\drivers\etc\hosts`
+**on windows** go to `C:\Windows\System32\drivers\etc\hosts`
+and append `127.0.0.1 weather-today.test` to the file
+
+**on linux** go to `/etc/hosts`
 and append `127.0.0.1 weather-today.test` to the file
 
 ## copy env file
@@ -83,6 +86,8 @@ from the navbar click on **developers** then **api keys**
 STRIPE_KEY=your-stripe-key
 STRIPE_SECRET=your-stripe-secret
 ```
+
+**Note**: please add stripe products and prices to stripe https://dashboard.stripe.com/test/products to be able to list them in the pricing page
 
 ### stripe webhook
 
