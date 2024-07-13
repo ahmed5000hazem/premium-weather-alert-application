@@ -17,7 +17,7 @@ class SubscriptionsPageComponent extends Component
     public function getSubscriptionsProperty()
     {
         $products = $this->stripeProducts();
-        return auth()->user()->subscriptions(env('STRIPE_PRODUCT_ID'))->latest()->get()->map(function ($subscription) use ($products) {
+        return auth()->user()->subscriptions()->latest()->get()->map(function ($subscription) use ($products) {
             $product = $products->firstWhere('id', $subscription->type);
             $subscription->plan = $product['name'];
             $subscription->price = Cashier::formatAmount($product['prices']->firstWhere('id', $subscription->stripe_price)->price);

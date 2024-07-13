@@ -2,18 +2,18 @@
 
 namespace App\Livewire\Pages;
 
+use App\Traits\InteractsWithStripe;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Lazy;
 use Livewire\Component;
-
+#[Lazy()]
 class PricingPageComponent extends Component
 {
-    /**
-     *
-     * @return boolean
-     */
-    public function getSubscribedProperty(): bool
+    use InteractsWithStripe;
+
+    public function getProductsProperty()
     {
-        return auth()->user()->subscribed(env('STRIPE_PRODUCT_ID'));
+        return $this->stripeProducts();
     }
 
     /**
@@ -24,15 +24,15 @@ class PricingPageComponent extends Component
     public function render()
     {
         return view('livewire.pages.pricing-page-component', [
-            'subscribed' => $this->subscribed
+            'products' => $this->products
         ]);
     }
 
-    public function checkout($price)
+    public function checkout($product, $price)
     {
         return auth()
             ->user()
-            ->newSubscription(env('STRIPE_PRODUCT_ID'), $price)
+            ->newSubscription($product, $price)
             ->trialDays(config('cashier.default_trial_days', 7))
             ->checkout([
                 'success_url' => route('success'),

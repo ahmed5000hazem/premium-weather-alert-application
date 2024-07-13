@@ -33,7 +33,11 @@ trait InteractsWithStripe
 
             $items[$price->product]['prices']->push((object) [
                 'id' => $price->id,
+                'interval' => $price->recurring->interval,
+                'interval_name' => $price->recurring->interval == 'month'? 'Monthly': 'Yearly',
+                'interval_count' => $price->recurring->interval_count,
                 'price' => $price->unit_amount,
+                'display_price' => Cashier::formatAmount($price->unit_amount),
             ]);
         endforeach;
 
