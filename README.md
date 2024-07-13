@@ -50,6 +50,18 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
+## run migrations
+
+```
+php artisan migrate
+```
+
+## run seeder
+
+```
+php artisan db:seed InitSeeder
+```
+
 ## to setup weather api
 
 replace WEATHER_KEY in env file with yours
@@ -146,4 +158,16 @@ to run tests run command
 
 ```
 php artisan test
+```
+
+## serve application
+
+```
+php artisan serve
+```
+
+## run frontend
+
+```
+npm run dev
 ```
