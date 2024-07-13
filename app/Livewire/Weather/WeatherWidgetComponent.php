@@ -5,6 +5,7 @@ namespace App\Livewire\Weather;
 use App\Models\Location;
 use App\Services\WeatherService;
 use Carbon\Carbon;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\Attributes\Lazy;
 
@@ -50,6 +51,15 @@ class WeatherWidgetComponent extends Component
             report($th);
             $this->errorMessage = 'failed to load weather data';
         }
+    }
+
+    /**
+     *
+     * @return View
+     */
+    public function placeholder():View
+    {
+        return view('loading');
     }
 
     public function render()

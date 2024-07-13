@@ -3,6 +3,7 @@
 namespace App\Livewire\Pages;
 
 use App\Traits\InteractsWithStripe;
+use Illuminate\Contracts\View\View;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Lazy;
 use Livewire\Component;
@@ -18,10 +19,19 @@ class PricingPageComponent extends Component
 
     /**
      *
-     * @return void
+     * @return View
+     */
+    public function placeholder(): View
+    {
+        return view('full-page-loader');
+    }
+
+    /**
+     *
+     * @return View
      */
     #[Layout('layouts.app')]
-    public function render()
+    public function render(): View
     {
         return view('livewire.pages.pricing-page-component', [
             'products' => $this->products

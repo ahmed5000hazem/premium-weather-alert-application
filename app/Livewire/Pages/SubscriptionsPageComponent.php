@@ -3,6 +3,7 @@
 namespace App\Livewire\Pages;
 
 use App\Traits\InteractsWithStripe;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Laravel\Cashier\Cashier;
 use Livewire\Attributes\Layout;
@@ -23,6 +24,15 @@ class SubscriptionsPageComponent extends Component
             $subscription->price = Cashier::formatAmount($product['prices']->firstWhere('id', $subscription->stripe_price)->price);
             return $subscription;
         });
+    }
+
+    /**
+     *
+     * @return View
+     */
+    public function placeholder(): View
+    {
+        return view('full-page-loader');
     }
 
     #[Layout('layouts.app')]
