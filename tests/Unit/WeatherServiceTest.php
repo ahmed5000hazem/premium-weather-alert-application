@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Http;
 use Carbon\Carbon;
 
 it('can obtain forecast', function () {
-    $locationName = 'Test Location';
+    $locationName = 'cairo';
     $date = Carbon::today()->toDateString();
     $hour = Carbon::now()->addHour()->hour;
     $mockResponse = [
@@ -21,7 +21,7 @@ it('can obtain forecast', function () {
 });
 
 it('can obtain forecast alert', function () {
-    $locationName = 'Test Location';
+    $locationName = 'cairo';
     $date = Carbon::today()->toDateString();
     $hour = Carbon::now()->addHour()->hour;
 
