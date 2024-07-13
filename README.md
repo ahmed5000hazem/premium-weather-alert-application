@@ -176,3 +176,8 @@ php artisan serve
 ```
 npm run dev
 ```
+
+## login credentials
+
+email: `user@weather-today.com`
+password: `123456`
