@@ -14,15 +14,15 @@ it('can update a location', function () {
     $location = Location::factory()->create();
 
     $location->name = 'Updated Name';
-    $location->latitude = '12.3456789';
-    $location->longitude = '98.7654321';
+    $location->latitude = 12.3456789;
+    $location->longitude = 98.7654321;
     $location->save();
 
     $updatedLocation = Location::find($location->id);
 
     expect($updatedLocation->name)->toBe('Updated Name');
-    expect($updatedLocation->latitude)->toBe('12.3456789');
-    expect($updatedLocation->longitude)->toBe('98.7654321');
+    expect($updatedLocation->latitude)->toBe(12.3456789);
+    expect($updatedLocation->longitude)->toBe(98.7654321);
 });
 
 it('can delete a location', function () {
