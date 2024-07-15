@@ -25,7 +25,9 @@
                     </a>
                 @endforelse
             </div>
-            <button wire:click='markAsRead' href="#" class="block w-full bg-gray-800 text-white text-center font-bold py-4">Mark all as read</button>
+            @if ($notifications->isNotEmpty())
+                <button wire:click='markAsRead' href="#" class="block w-full bg-gray-800 text-white text-center font-bold py-4">Mark all as read</button>
+            @endif
         </div>
     </div>
 </div>
