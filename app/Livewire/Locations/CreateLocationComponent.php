@@ -19,7 +19,7 @@ class CreateLocationComponent extends Component
      * @var array
      */
     protected $rules = [
-        'location.name' => 'required|unique:locations,name',
+        'location.name' => 'required',
         'location.longitude' => 'required',
         'location.latitude' => 'required',
     ];
